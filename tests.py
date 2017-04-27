@@ -6,7 +6,7 @@ pvtkey_fname = "pvt.pem"
 pubkey_fname = "pub.pem"
 url = "http://vertigo.cs.umd.edu/testDigiDrop.php"
 
-# 
+#
 # -Basic test for keygen, encrypt, decrypt
 # 1. generate keys
 # 2. encrypt plaintext into ciphertext
@@ -38,6 +38,17 @@ def test1():
 
 	assert (test_msg == getmsg_output)
 	print 'test1 completed successfully'
+
+#
+# -testing keygen, encrypt, decrypt, putmsg, getmsg, qrread, qrwrite
+# 1.
+# 2.
+# 3.
+# 4.
+# 5.
+# 6.
+def test2():
+	print ""
 
 def main():
 	test0()

@@ -10,11 +10,11 @@ testURL = 'http://vertigo.cs.umd.edu/testDigiDrop.php'
 def getCmdLineArgs(argv):
 	url = None
 	pvtkeyFile = None
-	try:	
+	try:
 		opts, args = getopt.getopt(argv, None, ["url=", "pvtkeyfile="])
 		for opt,arg in opts:
 			if(opt == '--url'):
-				url = arg	
+				url = arg
 			elif(opt == '--pvtkeyfile'):
 				pvtkeyFile = arg
 			else:
@@ -27,21 +27,24 @@ def getCmdLineArgs(argv):
 
 def main():
 	url, pvtkeyFile = getCmdLineArgs(sys.argv[1:])
-	
+
+	if url == None or pvtkeyFile == None:
+		print('usage: python getmsg.py --url <url of website to pull from> --pvtkeyfile <path to pvt key file>')
+		sys.exit(2)
 
 	r = requests.get(url)
 	text = r.text
 
 	# ---- temporarily commenting out ----
 
-	
+
 
 	# ---- Begin BeautifulSoup ----
 
 	from bs4 import BeautifulSoup
 	import codecs
 	import subprocess
-	
+
 	soup = BeautifulSoup(text, 'html.parser')
 	msgList = soup.find(id="DigiDropMessageList").children
 
@@ -57,10 +60,10 @@ def main():
 
 	# ---- End BeautifulSoup ----
 
-	
-	
-	
-		
-		
+
+
+
+
+
 
 main()

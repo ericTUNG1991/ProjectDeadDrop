@@ -24,6 +24,10 @@ def main():
 	# command line arguments
 	qrfile = getCmdLineArgs(sys.argv[1:])
 
+	if qrfile == None:
+		print 'usage: python qrread.py --qrfile <qr file>'
+		sys.exit(2)
+
 	# for debugging arguments
 	# print 'qrfile=' + qrfile + '\n'
 
@@ -41,11 +45,9 @@ def main():
 	# print qrfile
 	qr.decode(qrfile)
 
-	temp = qr.data 
+	temp = qr.data
 
 
-	f = open('qrkey.pem', 'w')
-	f.write(temp)
-	f.close()
+	print temp
 
 main()

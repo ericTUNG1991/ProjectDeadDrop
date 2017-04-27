@@ -18,9 +18,9 @@ def getCmdLineArgs(argv):
 			elif(opt == '--plaintext'):
 				plaintext = arg
 			else:
-				print 'usage: python encrypt.py --pubkeyfile <path to .dat file> --plaintext <plaintext>'
+				print 'usage: python encrypt.py --pubkeyfile <path to file> --plaintext <plaintext>'
 	except getopt.GetoptError:
-		print 'usage: python encrypt.py --pubkeyfile <path to .dat file> --plaintext <plaintext>'
+		print 'usage: python encrypt.py --pubkeyfile <path to file> --plaintext <plaintext>'
 		sys.exit(2)
 
 	return (pubkeyfile, plaintext)
@@ -31,7 +31,7 @@ def main():
 	#
 	pukey = ""
 	if pubkeyfile == None:
-		print 'usage: python encrypt.py --pubkeyfile <path to .dat file> --plaintext <plaintext>'
+		print 'usage: python encrypt.py --pubkeyfile <path to file> --plaintext <plaintext>'
 		sys.exit(2)
 
 	# GET RID OF ENDLINES IN MESSAGE AND PUBLIC KEY, remove PEM tags for pubkey literal
@@ -53,6 +53,7 @@ def main():
 	ciphertext_b64 = base64.b64encode(ciphertext)
 
 	print ciphertext_b64
+	exit(0)
 
 	#with open("ciphertext.txt","w") as ctext:
 	#	ctext.write(ciphertext)

@@ -19,9 +19,9 @@ def getCmdLineArgs(argv):
 			elif(opt == '--qrfile'):
 				qrfile = arg
 			else:
-				print 'usage: python qrwrite.py --textfile <path to file> --qrfile <qr file>'
+				print 'usage: python qrwrite.py --textfile <path to file> OR --text <message to convert> --qrfile <qr file>'
 	except getopt.GetoptError:
-		print 'usage: python qrwrite.py --textfile <path to file> --qrfile <qr file>'
+		print 'usage: python qrwrite.py --textfile <path to file> OR --text <message to convert> --qrfile <qr file>'
 		sys.exit(2)
 
 	return (text, textfile, qrfile)
@@ -29,6 +29,10 @@ def getCmdLineArgs(argv):
 def main():
 	# command line arguments
 	text, textfile, qrfile = getCmdLineArgs(sys.argv[1:])
+
+	if qrfile == None or (textfile == None and text == None):
+		print 'usage: python qrwrite.py --textfile <path to file> OR --text <message to convert> --qrfile <qr file>'
+		sys.exit(2)
 
 	# for debugging arguments
 	# print 'text=' + text + '\n' + 'textfile=' + textfile + '\n' + 'qrfile=' + qrfile + '\n'
@@ -51,6 +55,8 @@ def main():
 		img.png(qrfile, scale=2)
 	else:
 		print "Error: Empty Input"
+		print 'usage: python qrwrite.py --textfile <path to file> OR --text <message to convert> --qrfile <qr file>'
+		sys.exit(2)
 
 
 	# if text is None and textfile is not None, it will read

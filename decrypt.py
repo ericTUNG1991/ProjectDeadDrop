@@ -30,7 +30,7 @@ def getCmdLineArgs(argv):
 	return (pvtkeyfile, ciphertextfile, ciphertext)
 
 def printUsage():
-	print('usage: python decrypt.py --pvtkeyfile <path to .dat file> --ciphertextfile <path to ciphertext>')
+	print('usage: python decrypt.py --pvtkeyfile <path to file> --ciphertextfile <path to ciphertext> OR --ciphertext <ciphertext literal>')
 
 def main():
 	# command line arguments
@@ -55,7 +55,7 @@ def main():
 		with open(ciphertextfile,'rb') as cfile:
 			ctext_b64 = cfile.read()
 			cfile.close()
-	ctext = base64.b64decode(ctext_b64)	
+	ctext = base64.b64decode(ctext_b64)
 
 #	print ctextb
 	# from file
