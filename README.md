@@ -1,6 +1,31 @@
 # ProjectDeadDrop
 
-# HOW TO USE
+#HOW TO USE
+
+# Step 1 Generating Keys
+
+# $python keygen.py
+
+# this generates a public and private key file (pub.pem and pvt.pem).
+# now user will trade public key with intended recipent.
+# ONLY call keygen.py once otherwise public keys will need to be traded again.
+
+
+
+# Step 2 Trading Public Keys
+# Initial public key trading is left up to users.
+# We do provide two methods of public key trading as (QR Codes )
+
+# Basic encryption/decription
+
+
+
+
+
+
+
+
+#script details
 
 #encrypt.py 
 #usage: python encrypt.py --pubkeyfile <path to file> --plaintext <plaintext>
